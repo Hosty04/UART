@@ -5,5 +5,5 @@
 - Testing communication through the PUTTY interface with a computer.
 - Confirming data transmission from the board using buttons.
 - Confirming data transmission from the PC using keyboard.
-- Configuration: parity, 1/2 stop bits, number of data bits 5–9, baud rate 9600/19200.
+- Configuration: parity, 1/2 stop bits, number of data bits 5–9, baud rate 9600/115200.
 - 
