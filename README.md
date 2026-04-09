@@ -59,14 +59,14 @@ In both communication directions, transmitted and received data are stored in FI
 ### Debounce
 Eliminates unwanted signal glitches caused by mechanical button presses and releases.
 
-### UART Receiver (`UART_RX`)
-Receives serial data from the PC and, synchronized with the system clock (`CLK`), stores the incoming data into a FIFO buffer.
+### TX
+Accepts communication parameters and data from the FIFO buffer and FPGA inputs. It transmits serialized data to the PC, synchronized with the system clock (`CLK`).
 
-### FIFO Buffer
+### FIFO
 Implements a circular buffer to compensate for speed differences between data producers and consumers. It temporarily stores incoming or outgoing characters until they can be processed.
+
+### RX
+Receives serial data from the PC and, synchronized with the system clock (`CLK`), stores the incoming data into a FIFO buffer.
 
 ### Display Driver
 Handles conversion from binary values to seven-segment display encoding (`bin_to_seg`). It enables control of multiple displays and allows simultaneous visualization of different characters.
-
-### UART Transmitter (`UART_TX`)
-Accepts communication parameters and data from the FIFO buffer and FPGA inputs. It transmits serialized data to the PC, synchronized with the system clock (`CLK`).
