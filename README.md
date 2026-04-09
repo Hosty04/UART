@@ -5,7 +5,7 @@
 This project implements a bidirectional communication system between an FPGA board and a personal computer using the UART protocol. The design enables the user to send and receive messages via hardware inputs (switches and buttons) as well as through a PC keyboard interface.
 
 The system includes buffering mechanisms, signal conditioning, and real-time display output using seven-segment displays.
-
+![image alt](https://github.com/Hosty04/UART/blob/8da96e71e9938c1ad4686c9d81b785081e4742ce/UART_schema.png)
 ---
 
 ## Inputs
