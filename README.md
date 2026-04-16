@@ -11,17 +11,17 @@ The system includes buffering mechanisms, signal conditioning, and real-time dis
 ---
 
 ## Inputs
-- 14 switches located on the bottom side of the FPGA board  
-- 5 push buttons  
+- 15 switches located on the bottom side of the FPGA board  
+- 3 push buttons  
 - PC keyboard (via terminal interface)  
-- UART input port (`UART_TXD_IN`) via micro USB → USB-A  
+- Logical analyzator 
 
 ---
 
 ## Outputs
-- UART output port (`UART_TXD_OUT`) via micro USB → USB-A  
+- Logical analyzator  
 - 2× LEDs (status indication)  
-- 2× seven-segment displays  
+- 2× seven-segment displays 
 
 ---
 
@@ -39,7 +39,7 @@ The system includes buffering mechanisms, signal conditioning, and real-time dis
 ### FPGA → PC Communication
 The user selects a message using the board switches. Additional switches are used to configure communication parameters. The transmission is initiated by pressing a dedicated button.
 
-The FPGA sends the message to the PC via UART. Transmission status is indicated using LEDs and/or seven-segment displays. The received message is displayed on the PC using a serial terminal application (e.g., PuTTY).
+The FPGA sends the message to the PC via UART. Transmission status is indicated using LEDs and/or seven-segment displays. The received message is displayed on logical analyzator.
 
 ### PC → FPGA Communication
 The system supports communication in the opposite direction:
@@ -84,5 +84,5 @@ The settings area controls the serial link behavior and determines how data is f
 | **Parity** | Enables **even parity** for basic error checking. |
 | **Stop bits** | Selects the number of stop bits used in the UART frame: **1** or **2**. |
 | **Baud rate** | Selects the communication speed: **9600** or **115200** baud. |
-
+| **Info bits** | Selects the number od info bits you want to send: **5-9**. |
 These parameters must match the settings of the connected PC terminal to ensure successful communication. A mismatch in baud rate, parity, or stop bits may result in corrupted data or no visible transmission at all.
