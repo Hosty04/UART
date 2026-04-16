@@ -81,10 +81,14 @@ begin
 
                     when STOP_BIT =>
                         if baud_cnt = MAX_COUNT - 1 then
-                            baud_cnt   <= 0;
-                            state      <= IDLE;
-                            data       <= shift_reg;
-                            data_valid <= '1';
+                            baud_cnt <= 0;
+                            state    <= IDLE;
+                            if rx = '1' then
+                                data       <= shift_reg;
+                                data_valid <= '1';
+                            else
+                                data_valid <= '0';
+                            end if;
                         else
                             baud_cnt <= baud_cnt + 1;
                         end if;

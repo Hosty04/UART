@@ -37,15 +37,17 @@ architecture Behavioral of uart_tx is
 begin
 
     process(settings)
-        variable tmp : integer;
+        variable baud_rate : integer;
+        variable tmp       : integer;
     begin
         if settings(0) = '0' then
-            baudrate <= 9600;
+            baud_rate := 9600;
         else
-            baudrate <= 115200;
+            baud_rate := 115200;
         end if;
 
-        max_count <= CLK_FREQ / baudrate;
+        baudrate  <= baud_rate;
+        max_count <= CLK_FREQ / baud_rate;
 
         tmp := 5 + to_integer(unsigned(settings(5 downto 3)));
         if tmp > 9 then
@@ -81,7 +83,6 @@ begin
                         if tx_start = '1' then
                             shift_reg <= data;
                             
-                            -- sudá parita
                             parity_tmp := '0';
                             for i in 0 to 8 loop
                                 if i < info_bits then

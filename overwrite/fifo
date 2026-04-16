@@ -14,9 +14,9 @@ entity fifo is
         data_in    : in  std_logic_vector(DATA_WIDTH-1 downto 0);
         rd_en      : in  std_logic;
         data_out   : out std_logic_vector(DATA_WIDTH-1 downto 0);
-        data_valid : out std_logic;
         full       : out std_logic;
-        empty      : out std_logic
+        empty      : out std_logic;
+        data_valid : out std_logic
     );
 end entity fifo;
 
@@ -36,9 +36,7 @@ architecture Behavioral of fifo is
     signal full_i  : std_logic;
     signal empty_i : std_logic;
 
-    type state_t is (IDLE, DUMP);
-    signal state   : state_t := IDLE;
-    signal dumping : std_logic;
+    data_valid <= not empty_i;
 
 begin
 
@@ -52,50 +50,29 @@ begin
              (wr_ptr(ADDR_WIDTH-1 downto 0) = rd_ptr(ADDR_WIDTH-1 downto 0))
         else '0';
 
-    dumping <= '1' when state = DUMP else '0';
+    full     <= full_i;
+    empty    <= empty_i;
+    data_out <= ram(to_integer(rd_addr));
 
-    full      <= full_i;
-    empty     <= empty_i;
-    data_out  <= ram(to_integer(rd_addr));
-    data_valid <= dumping;
-
-    -- Write process
     write_p : process(clk)
     begin
         if rising_edge(clk) then
             if rst = '1' then
                 wr_ptr <= (others => '0');
-            elsif wr_en = '1' and full_i = '0' and dumping = '0' then
+            elsif wr_en = '1' and full_i = '0' then
                 ram(to_integer(wr_addr)) <= data_in;
                 wr_ptr <= wr_ptr + 1;
             end if;
         end if;
     end process write_p;
 
-    -- Read / Dump process
     read_p : process(clk)
     begin
         if rising_edge(clk) then
             if rst = '1' then
                 rd_ptr <= (others => '0');
-                state  <= IDLE;
-            else
-                case state is
-
-                    when IDLE =>
-                        if rd_en = '1' and empty_i = '0' then
-                            state  <= DUMP;
-                            rd_ptr <= rd_ptr + 1;
-                        end if;
-
-                    when DUMP =>
-                        if empty_i = '0' then
-                            rd_ptr <= rd_ptr + 1;
-                        else
-                            state <= IDLE;
-                        end if;
-
-                end case;
+            elsif rd_en = '1' and empty_i = '0' then
+                rd_ptr <= rd_ptr + 1;
             end if;
         end if;
     end process read_p;
