@@ -23,3 +23,11 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/270798/Documents/UART/rx/rx.xpr
+update_compile_order -fileset sources_1
+open_project C:/Users/270798/Documents/UART/fifo/fifo.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project C:/Users/270798/Documents/UART/tx/tx.xpr
+update_compile_order -fileset sources_1
+current_project rx
+close_project
