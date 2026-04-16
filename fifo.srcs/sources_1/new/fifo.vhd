@@ -33,9 +33,11 @@ architecture Behavioral of fifo is
   signal wr_addr : unsigned(ADDR_WIDTH-1 downto 0);
   signal rd_addr : unsigned(ADDR_WIDTH-1 downto 0);
 
-  type state_t is (IDLE, DUMPING);
-  signal state : state_t := IDLE;
+  signal full_i  : std_logic;
+  signal empty_i : std_logic;
 
+  type state_t is (IDLE, DUMP);
+  signal state   : state_t := IDLE;
   signal dumping : std_logic;
 
 begin
@@ -43,27 +45,32 @@ begin
   wr_addr <= wr_ptr(ADDR_WIDTH-1 downto 0);
   rd_addr <= rd_ptr(ADDR_WIDTH-1 downto 0);
 
-  empty <= '1' when wr_ptr = rd_ptr else '0';
-  full  <= '1' when (wr_ptr(ADDR_WIDTH) /= rd_ptr(ADDR_WIDTH)) and 
-                    (wr_ptr(ADDR_WIDTH-1 downto 0) = rd_ptr(ADDR_WIDTH-1 downto 0)) else '0';
+  empty_i <= '1' when wr_ptr = rd_ptr else '0';
+  full_i  <= '1' when (wr_ptr(ADDR_WIDTH) /= rd_ptr(ADDR_WIDTH)) and 
+                      (wr_ptr(ADDR_WIDTH-1 downto 0) = rd_ptr(ADDR_WIDTH-1 downto 0)) 
+                 else '0';
 
-  dumping <= '1' when state = DUMPING else '0';
+  dumping <= '1' when state = DUMP else '0';
 
+  full    <= full_i;
+  empty   <= empty_i;
   data_out <= ram(to_integer(rd_addr));
   start    <= dumping;
 
+  -- Write process
   write_p : process (clk)
   begin
     if rising_edge(clk) then
       if rst = '1' then
         wr_ptr <= (others => '0');
-      elsif wr_en = '1' and full = '0' and dumping = '0' then
+      elsif wr_en = '1' and full_i = '0' and dumping = '0' then
         ram(to_integer(wr_addr)) <= data_in;
         wr_ptr <= wr_ptr + 1;
       end if;
     end if;
   end process write_p;
 
+  -- Read / Dump process
   read_p : process (clk)
   begin
     if rising_edge(clk) then
@@ -73,13 +80,13 @@ begin
       else
         case state is
           when IDLE =>
-            if rd_en = '1' and empty = '0' then
-              state  <= DUMPING;
+            if rd_en = '1' and empty_i = '0' then
+              state  <= DUMP;
               rd_ptr <= rd_ptr + 1;
             end if;
 
-          when DUMPING =>
-            if empty = '0' then
+          when DUMP =>
+            if empty_i = '0' then
               rd_ptr <= rd_ptr + 1;
             else
               state <= IDLE;
