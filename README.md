@@ -11,17 +11,17 @@ The system includes buffering mechanisms, signal conditioning, and real-time dis
 ---
 
 ## Inputs
-- 14 switches located on the bottom side of the FPGA board  
-- 5 push buttons  
+- 15 switches located on the bottom side of the FPGA board  
+- 3 push buttons  
 - PC keyboard (via terminal interface)  
-- UART input port (`UART_TXD_IN`) via micro USB → USB-A  
+- Logical analyzator 
 
 ---
 
 ## Outputs
-- UART output port (`UART_TXD_OUT`) via micro USB → USB-A  
+- Logical analyzator  
 - 2× LEDs (status indication)  
-- 2× seven-segment displays  
+- 2× seven-segment displays 
 
 ---
 
@@ -39,7 +39,7 @@ The system includes buffering mechanisms, signal conditioning, and real-time dis
 ### FPGA → PC Communication
 The user selects a message using the board switches. Additional switches are used to configure communication parameters. The transmission is initiated by pressing a dedicated button.
 
-The FPGA sends the message to the PC via UART. Transmission status is indicated using LEDs and/or seven-segment displays. The received message is displayed on the PC using a serial terminal application (e.g., PuTTY).
+The FPGA sends the message to the PC via UART. Transmission status is indicated using LEDs and/or seven-segment displays. The received message is displayed on logical analyzator.
 
 ### PC → FPGA Communication
 The system supports communication in the opposite direction:
@@ -60,7 +60,7 @@ In both communication directions, transmitted and received data are stored in FI
 Eliminates unwanted signal glitches caused by mechanical button presses and releases.
 
 ### TX
-Accepts communication parameters and data from the FIFO buffer and FPGA inputs. It transmits serialized data to the PC, synchronized with the system clock (`CLK`).
+Accepts communication parameters and data from the FIFO buffer and FPGA inputs. It transmits serialized data to the PC, synchronized with the system clock (`CLK`). 
 
 ### FIFO
 Implements a circular buffer to compensate for speed differences between data producers and consumers. It temporarily stores incoming or outgoing characters until they can be processed.
@@ -70,3 +70,20 @@ Receives serial data from the PC and, synchronized with the system clock (`CLK`)
 
 ### Display Driver
 Handles conversion from binary values to seven-segment display encoding (`bin_to_seg`). It enables control of multiple displays and allows simultaneous visualization of different characters.
+
+---
+## Settings
+
+Communication parameters are selected using the dedicated configuration switches on the FPGA board.
+
+The settings area controls the serial link behavior and determines how data is framed before transmission and how incoming data is interpreted by the receiver.
+
+| Setting | Description |
+|---|---|
+| **Address flag** | Marks whether the transmitted byte is treated as an address or as regular data. |
+| **Parity** | Enables **even parity** for basic error checking. |
+| **Stop bits** | Selects the number of stop bits used in the UART frame: **1** or **2**. |
+| **Baud rate** | Selects the communication speed: **9600** or **115200** baud. |
+| **Info bits** | Selects the number od info bits you want to send: **5-9**. |
+
+These parameters must match the settings of the connected PC terminal to ensure successful communication. A mismatch in baud rate, parity, or stop bits may result in corrupted data or no visible transmission at all.
