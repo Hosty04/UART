@@ -84,7 +84,6 @@ architecture Behavioral of uart_top is
     signal sig_tx_wr_en          : std_logic;
     signal sig_tx_flush          : std_logic;
     signal sig_tx_flush_hold     : std_logic := '0';
-    signal sig_tx_rd_en          : std_logic;
     signal sig_tx_fifo_empty     : std_logic;
     signal sig_tx_start          : std_logic := '0';
     signal sig_tx_data           : std_logic_vector(8 downto 0);
@@ -130,7 +129,7 @@ begin
             rst        => btnd,
             wr_en      => sig_tx_wr_en,
             data_in    => sw(8 downto 0),
-            rd_en      => sig_tx_rd_en,
+            rd_en      => sig_tx_done,
             data_out   => sig_tx_data,
             full       => open,
             empty      => sig_tx_fifo_empty,
@@ -188,8 +187,6 @@ begin
 
     led17_g <= sig_tx_fifo_empty;
     led17_b <= sig_rx_fifo_empty;
-
-    sig_tx_rd_en <= sig_tx_done;
 
     hold_p : process(clk)
     begin
