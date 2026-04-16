@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+Note: Simulating button press with bounce
+Time: 50 ns  Iteration: 0  Process: /tb_debounce_cfg_tb_debounce/stimuli  File: C:/Users/xpupik00/Documents/de1/debounce/debounce.srcs/sim_1/new/debounce_tb.vhd
+Note: Simulating button release with bounce
+Time: 500 ns  Iteration: 0  Process: /tb_debounce_cfg_tb_debounce/stimuli  File: C:/Users/xpupik00/Documents/de1/debounce/debounce.srcs/sim_1/new/debounce_tb.vhd
+Note: Simulation finished
+Time: 960 ns  Iteration: 0  Process: /tb_debounce_cfg_tb_debounce/stimuli  File: C:/Users/xpupik00/Documents/de1/debounce/debounce.srcs/sim_1/new/debounce_tb.vhd
