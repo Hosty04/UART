@@ -85,4 +85,5 @@ The settings area controls the serial link behavior and determines how data is f
 | **Stop bits** | Selects the number of stop bits used in the UART frame: **1** or **2**. |
 | **Baud rate** | Selects the communication speed: **9600** or **115200** baud. |
 | **Info bits** | Selects the number od info bits you want to send: **5-9**. |
+
 These parameters must match the settings of the connected PC terminal to ensure successful communication. A mismatch in baud rate, parity, or stop bits may result in corrupted data or no visible transmission at all.
