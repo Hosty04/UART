@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../debounce.srcs/sources_1/imports/new/clk_en.vhd" \
+"../../../../debounce.srcs/sources_1/new/debounce.vhd" \
+"../../../../debounce.srcs/sim_1/new/debounce_tb.vhd" \
+
+# Do not sort compile order
+nosort
