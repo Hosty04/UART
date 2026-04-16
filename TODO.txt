@@ -1,3 +1,3 @@
 - opravit schéma
-- v README pridat odkazy na srcs
-- simulace novych komponent
+- v README pridat odkazy na srcs a simulace novych komponent 
+- dokončit uart_top není kompeltní instanciace
