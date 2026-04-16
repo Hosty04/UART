@@ -8,15 +8,15 @@ entity fifo is
     ADDR_WIDTH : positive := 4
   );
   port (
-    clk      : in  std_logic;
-    rst      : in  std_logic;
-    wr_en    : in  std_logic;
-    data_in  : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-    rd_en    : in  std_logic;
-    data_out : out std_logic_vector(DATA_WIDTH-1 downto 0);
-    full     : out std_logic;
-    empty    : out std_logic;
-    start    : out std_logic
+    clk        : in  std_logic;
+    rst        : in  std_logic;
+    wr_en      : in  std_logic;
+    data_in    : in  std_logic_vector(DATA_WIDTH-1 downto 0);
+    rd_en      : in  std_logic;
+    data_out   : out std_logic_vector(DATA_WIDTH-1 downto 0);
+    data_valid : out std_logic;
+    full       : out std_logic;
+    empty      : out std_logic
   );
 end entity fifo;
 
@@ -55,7 +55,7 @@ begin
   full    <= full_i;
   empty   <= empty_i;
   data_out <= ram(to_integer(rd_addr));
-  start    <= dumping;
+  data_valid    <= dumping;
 
   -- Write process
   write_p : process (clk)
