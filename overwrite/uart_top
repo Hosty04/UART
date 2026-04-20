@@ -99,6 +99,7 @@ architecture Behavioral of uart_top is
     signal sig_data_disp_latched : std_logic_vector(7 downto 0);
 
     signal timer                 : integer range 0 to 199999999 := 0;
+    signal timer_temp            : integer := 1;
 
 begin
 
@@ -226,6 +227,13 @@ begin
                 sig_rx_pop <= '0';
             else
                 sig_rx_pop <= '0';
+                if sig_rx_fifo_empty then
+                    timer_temp = 1;
+                end if
+                if not sig_rx_fifo_empty and timer_temp then
+                    timer = 0;
+                    timer_temp = 0;
+                end if
                 if timer = 199999999 then
                     timer <= 0;
                     sig_rx_pop <= '1';
