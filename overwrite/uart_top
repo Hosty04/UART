@@ -159,7 +159,7 @@ begin
             rst         => btnd,
             data        => sig_tx_data,
             settings    => sw(15 downto 10),
-            tx_start    => sig_tx_start and sig_flush_hold,
+            tx_start    => sig_tx_start and sig_tx_flush_hold,
             tx          => ja1,
             tx_complete => sig_tx_done
         );
