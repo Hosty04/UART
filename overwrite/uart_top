@@ -186,7 +186,7 @@ begin
     an(7 downto 2) <= b"11_1111";
     dp <= '1';
 
-    led17_g <= sig_tx_fifo_empty;
+    led16_g <= sig_tx_fifo_empty;
     led17_b <= sig_rx_fifo_empty;
 
     hold_p : process(clk)
