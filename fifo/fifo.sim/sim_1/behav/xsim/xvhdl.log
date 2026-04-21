@@ -1,0 +1,2 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mara/vivado_projects/UART/fifo/fifo.srcs/sim_1/new/fifo_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_fifo'

@@ -1,0 +1,2 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mara/vivado_projects/UART/tx/tx.srcs/sources_1/imports/new/tx.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'uart_tx'

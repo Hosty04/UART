@@ -1,3 +1,2 @@
-- v README pridat odkazy na srcs a simulace novych komponent
-- uart_top: přidat srcs
+- v README pridat odkazy na srcs, simulace novych komponent a popsat funkci settings vice do podrobna
 

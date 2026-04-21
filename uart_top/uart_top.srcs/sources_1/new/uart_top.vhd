@@ -2,123 +2,239 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity uart_top is
-    Port ( clk      : in STD_LOGIC;
-           btnd     : in STD_LOGIC;
-           btnu     : in STD_LOGIC;
-           btnc     : in STD_LOGIC;
-           sw       : in STD_LOGIC_VECTOR (15 downto 0);
-           ja2      : in STD_LOGIC;
-           ja1      : out STD_LOGIC;
-           led16_g  : out STD_LOGIC;
-           led16_b  : out STD_LOGIC;
-           led16_r  : out STD_LOGIC;
-           an       : out STD_LOGIC_VECTOR (7 downto 0);
-           dp       : out STD_LOGIC;
-           seg      : out STD_LOGIC_VECTOR (6 downto 0);
-           led17_g  : out STD_LOGIC;
-           led17_b  : out STD_LOGIC;
-           led17_r  : out STD_LOGIC);
+    Port (
+        clk          : in  STD_LOGIC;
+        btnd         : in  STD_LOGIC;
+        btnu         : in  STD_LOGIC;
+        btnc         : in  STD_LOGIC;
+        sw           : in  STD_LOGIC_VECTOR (15 downto 0);
+        ja1          : out STD_LOGIC;
+        uart_tx_in   : in  STD_LOGIC;
+        led16_g      : out STD_LOGIC;
+        led17_b      : out STD_LOGIC;
+        led17_r      : out STD_LOGIC;
+        an           : out STD_LOGIC_VECTOR (7 downto 0);
+        dp           : out STD_LOGIC;
+        seg          : out STD_LOGIC_VECTOR (6 downto 0)
+    );
 end uart_top;
 
 architecture Behavioral of uart_top is
 
-component debounce is
-    Port ( clk       : in STD_LOGIC;
-           rst       : in STD_LOGIC;
-           btn_in    : in STD_LOGIC;
-           btn_state : out STD_LOGIC;
-           btn_press : out STD_LOGIC);
-end component debounce;
+    component debounce is
+        Port (
+            clk       : in  STD_LOGIC;
+            rst       : in  STD_LOGIC;
+            btn_in    : in  STD_LOGIC;
+            btn_state : out STD_LOGIC;
+            btn_press : out STD_LOGIC
+        );
+    end component;
 
-component display_top is
-    Port ( clk  : in STD_LOGIC;
-           btnu : in STD_LOGIC;
-           sw   : in STD_LOGIC_VECTOR (7 downto 0);
-           seg  : out STD_LOGIC_VECTOR (6 downto 0);
-           an   : out STD_LOGIC_VECTOR (7 downto 0);
-           dp   : out STD_LOGIC);
-end component display_top;
+    component fifo is
+        Generic (
+            DATA_WIDTH : positive := 9;
+            ADDR_WIDTH : positive := 4
+        );
+        Port (
+            clk        : in  std_logic;
+            rst        : in  std_logic;
+            wr_en      : in  std_logic;
+            data_in    : in  std_logic_vector(DATA_WIDTH-1 downto 0);
+            rd_en      : in  std_logic;
+            data_out   : out std_logic_vector(DATA_WIDTH-1 downto 0);
+            full       : out std_logic;
+            empty      : out std_logic
+        );
+    end component;
 
-component fifo is
-  Generic (
-    DATA_WIDTH : positive := 8;
-    ADDR_WIDTH : positive := 4
-  );
-  Port (
-    clk           : in  std_logic;
-    rst           : in  std_logic;
-    wr_en         : in  std_logic;
-    data_in       : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-    rd_en         : in  std_logic;
-    data_out      : out std_logic_vector(DATA_WIDTH-1 downto 0);
-    data_valid    : out std_logic;
-    full          : out std_logic;
-    empty         : out std_logic;
-  );
-end component fifo;
+    component uart_tx is
+        Port (
+            clk         : in  STD_LOGIC;
+            rst         : in  STD_LOGIC;
+            data        : in  STD_LOGIC_VECTOR (8 downto 0);
+            settings    : in  STD_LOGIC_VECTOR (5 downto 0);
+            tx_start    : in  STD_LOGIC;
+            tx          : out STD_LOGIC;
+            tx_complete : out STD_LOGIC
+        );
+    end component;
 
-component uart_rx is
-    Port (
-        clk        : in  std_logic;
-        rst        : in  std_logic;
-        rx         : in  std_logic;
-        settings   : in  std_logic_vector(5 downto 0);
-        data       : out std_logic_vector(7 downto 0);
-        data_valid : out std_logic
-    );
-end component uart_rx;
+    component uart_rx is
+        Port (
+            clk        : in  std_logic;
+            rst        : in  std_logic;
+            rx         : in  std_logic;
+            data       : out std_logic_vector(7 downto 0);
+            data_valid : out std_logic
+        );
+    end component;
 
-component uart_tx is
-    Port ( clk           : in STD_LOGIC;
-           rst           : in STD_LOGIC;
-           data          : in STD_LOGIC_VECTOR (7 downto 0);
-           settings      : in STD_LOGIC_VECTOR (5 downto 0);
-           tx_start      : in STD_LOGIC;
-           tx            : out STD_LOGIC;
-           tx_complete   : out STD_LOGIC);
-end component uart_tx;
+    component display_driver is
+        Port (
+            clk         : in  STD_LOGIC;
+            rst         : in  STD_LOGIC;
+            data        : in  STD_LOGIC_VECTOR (7 downto 0);
+            seg         : out STD_LOGIC_VECTOR (6 downto 0);
+            anode       : out STD_LOGIC_VECTOR (1 downto 0)
+        );
+    end component;
 
-signal sig_wr_en_tx: std_logic;
-signal sig_data_rx: std_logic;
-signal sig_start_rx: std_logic_vector(7 downto 0);
+    signal sig_tx_wr_en          : std_logic;
+    signal sig_tx_flush          : std_logic;
+    signal sig_tx_flush_hold     : std_logic := '0';
+    signal sig_tx_fifo_empty     : std_logic;
+    signal sig_tx_data           : std_logic_vector(8 downto 0);
+    signal sig_tx_done           : std_logic;
+    signal sig_tx_start          : std_logic := sig_tx_flush_hold and not sig_tx_fifo_empty;
+
+    signal sig_rx_data           : std_logic_vector(7 downto 0);
+    signal sig_rx_valid          : std_logic;
+    signal sig_rx_fifo_empty     : std_logic;
+    signal sig_rx_pop            : std_logic;
+
+    signal sig_data_disp         : std_logic_vector(7 downto 0);
+    signal sig_data_disp_latched : std_logic_vector(7 downto 0);
+
+    signal timer                 : integer range 0 to 199999999 := 0;
 
 begin
 
-uart_rx0 : uart_rx
-port map (
-    clk          => clk, 
-    rst          => btnd,
-    rx           => ja2,
-    settings     => sw,
-    data         => sig_data_rx ,
-    data_valid   => sig_start_rx
+    debounce_0 : debounce
+        port map (
+            clk       => clk,
+            rst       => btnd,
+            btn_in    => btnu,
+            btn_press => sig_tx_wr_en,
+            btn_state => open
+        );
 
-);
+    debounce_1 : debounce
+        port map (
+            clk       => clk,
+            rst       => btnd,
+            btn_in    => btnc,
+            btn_press => sig_tx_flush,
+            btn_state => open
+        );
 
+    fifo_0 : fifo
+        generic map (
+            DATA_WIDTH => 9,
+            ADDR_WIDTH => 4
+        )
+        port map (
+            clk        => clk,
+            rst        => btnd,
+            wr_en      => sig_tx_wr_en,
+            data_in    => sw(8 downto 0),
+            rd_en      => sig_tx_done,
+            data_out   => sig_tx_data,
+            full       => open,
+            empty      => sig_tx_fifo_empty
+        );
 
-debounce0 : debounce
-port map (
-    clk       => clk,
-    rst       => btnd,
-    btn_in    => btnu,
-    btn_state => sig_wr_en_tx,
-    btn_press => open
-);
+    fifo_1 : fifo
+        generic map (
+            DATA_WIDTH => 8,
+            ADDR_WIDTH => 4
+        )
+        port map (
+            clk        => clk,
+            rst        => btnd,
+            wr_en      => sig_rx_valid,
+            data_in    => sig_rx_data,
+            rd_en      => sig_rx_pop,
+            data_out   => sig_data_disp,
+            full       => led17_r,
+            empty      => sig_rx_fifo_empty
+        );
 
-fifo0 : fifo
-generic map (
-    DATA_WIDTH : positive := 8
-    ADDR_WIDTH : positive := 4
-)
-port map (
-     clk         =>   clk,
-     rst         =>   rst,  
-     wr_en       =>   sig_wr_en_tx,  
-     data_in     =>   sw,
-     rd_en       =>   sig_rd_en_tx, 
-     data_out    =>   sig_data_tx,   
-     data_valid  =>   sig_start,
-     full        =>   led16_r,
-     empty       =>   led16_b
-);
+    uart_tx_0 : uart_tx
+        port map (
+            clk         => clk,
+            rst         => btnd,
+            data        => sig_tx_data,
+            settings    => sw(15 downto 10),
+            tx_start    => sig_tx_start,
+            tx          => ja1,
+            tx_complete => sig_tx_done
+        );
+
+    uart_rx_0 : uart_rx
+        port map (
+            clk        => clk,
+            rst        => btnd,
+            rx         => uart_tx_in,
+            data       => sig_rx_data,
+            data_valid => sig_rx_valid
+        );
+
+    display_driver_0 : display_driver
+        port map (
+            clk         => clk,
+            rst         => btnd,
+            data        => sig_data_disp_latched,
+            seg         => seg,
+            anode       => an(1 downto 0)
+        );
+
+    an(7 downto 2) <= b"11_1111";
+    dp <= '1';
+
+    led16_g <= sig_tx_fifo_empty;
+    led17_b <= sig_rx_fifo_empty;
+
+    hold_p : process(clk)
+    begin
+        if rising_edge(clk) then
+            if btnd = '1' then
+                sig_tx_flush_hold <= '0';
+            elsif sig_tx_flush = '1' then
+                sig_tx_flush_hold <= '1';
+            elsif sig_tx_fifo_empty = '1' then
+                sig_tx_flush_hold <= '0';
+            end if;
+        end if;
+    end process;
+
+    latch_p : process(clk)
+    begin
+        if rising_edge(clk) then
+            if btnd = '1' then
+                sig_data_disp_latched <= (others => '0');
+            elsif sig_rx_pop = '1' then
+                if sig_rx_fifo_empty = '0' then
+                    sig_data_disp_latched <= sig_data_disp;
+                else
+                    sig_data_disp_latched <= (others => '0');
+                end if;
+            end if;
+        end if;
+    end process;
+
+    timer_p : process(clk)
+        begin
+            if rising_edge(clk) then
+                if btnd = '1' then
+                    timer <= 0;
+                    sig_rx_pop <= '0';
+        
+                elsif sig_rx_fifo_empty = '0' then
+        
+                    if timer = 199999999 then
+                        timer <= 0;
+                        sig_rx_pop <= '1';
+                    else
+                        timer <= timer + 1;
+                        sig_rx_pop <= '0';
+                    end if;
+        
+                else
+                    timer <= 0;
+                    sig_rx_pop <= '0';
+                end if;
+            end if;
+        end process;
+
 end Behavioral;
