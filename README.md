@@ -7,7 +7,7 @@ This project implements a bidirectional communication system between an FPGA boa
 
 The system includes buffering mechanisms, signal conditioning, and real-time display output using seven-segment displays.
 
-![image alt](https://github.com/Hosty04/UART/blob/c9f9bf7e599d3b5776ac94ef6e318e7400181a57/UART.png)
+![image alt](https://github.com/Hosty04/UART/blob/579645e6c175d3026c799b1a5805947459b93192/schematic/UART.png)
 ---
 
 ## Inputs
