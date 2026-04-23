@@ -89,24 +89,12 @@ Communication parameters are selected using the dedicated configuration switches
 
 The settings area controls the serial link behavior and determines how data is framed before transmission and how incoming data is interpreted by the receiver.
 
-| Setting | Description |
-|---|---|
-| **Parity** | Enables **even parity** for basic error checking. 
-Switch is in the up position| Parity is enabled
-Switch is in the down position| Parity is disabled
-|||
-| **Stop bits** | Selects the number of stop bits used in the UART frame: **1** or **2**. 
-Switch is in the up position| 2 stop bits
-Switch is in the down position| 1 stop bit
-|||
-| **Baud rate** | Selects the communication speed: **9600** or **115200** baud. 
-Switch is in the up position| 115200 baud
-Switch is in the down position| 9600 baud
-|||
-| **Info bits** | Selects the number od info bits you want to send: **5-9**. 
-Switch is in the up position| 9
-Switch is in the down position| 5
-||| 
+| Setting     | Switch up        | Switch down     |
+|-------------|-----------------|-----------------|
+| Parity      | Enabled         | Disabled        |
+| Stop bits   | 2               | 1               |
+| Baud rate   | 115200          | 9600            |
+| Info bits   | 9               | 5               |
 ---
 
 ## Simulations 
@@ -154,3 +142,15 @@ The simulation demonstrates the reception of 8-bit data from the component **RX*
 The simulation shows how the **FIFO** sends signals indicating when it is full or empty and sequentially transmits data to the **Display Driver** component.
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/fifo_rd.png)
+
+
+
+<table>
+<tr>
+<th>Treatment pairs</th>
+</tr>
+<tr>
+<td>$${\color{green} text}$$</tr>
+</tr>
+
+
