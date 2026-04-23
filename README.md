@@ -100,13 +100,13 @@ Switch is in the up position| 2 stop bits
 Switch is in the down position| 1 stop bit
 |||
 | **Baud rate** | Selects the communication speed: **9600** or **115200** baud. 
-Switch is in the up position|
-Switch is in the down position|
+Switch is in the up position| 115200 baud
+Switch is in the down position| 9600 baud
 |||
 | **Info bits** | Selects the number od info bits you want to send: **5-9**. 
-Switch is in the up position|
-Switch is in the down position|
-|||
+Switch is in the up position| 9
+Switch is in the down position| 5
+||| 
 ---
 
 ## Simulations 
