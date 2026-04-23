@@ -52,6 +52,9 @@ Incoming characters are received by the FPGA and displayed sequentially on the t
 ### Data Buffering
 In both communication directions, transmitted and received data are stored in FIFO buffers. These buffers temporarily hold a predefined number of characters and ensure proper synchronization between components operating at different speeds.
 
+### FIFO Memory
+X
+
 ---
 
 ## Specifications
