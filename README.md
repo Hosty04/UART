@@ -94,19 +94,23 @@ The settings area controls the serial link behavior and determines how data is f
 | **Address flag** | Marks whether the transmitted byte is treated as an address or as regular data. 
 Switch is in the up position|
 Switch is in the down position|
+|||
 | **Parity** | Enables **even parity** for basic error checking. 
 Switch is in the up position|
 Switch is in the down position|
+|||
 | **Stop bits** | Selects the number of stop bits used in the UART frame: **1** or **2**. 
 Switch is in the up position|
 Switch is in the down position|
+|||
 | **Baud rate** | Selects the communication speed: **9600** or **115200** baud. 
 Switch is in the up position|
 Switch is in the down position|
+|||
 | **Info bits** | Selects the number od info bits you want to send: **5-9**. 
 Switch is in the up position|
 Switch is in the down position|
-
+|||
 ---
 
 ## Simulations 
