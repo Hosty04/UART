@@ -117,7 +117,6 @@ Simulation settings:
 
 | Setting | Set to |
 |---|---|
-| **Address flag** | **3** |
 | **Parity** | **1** |
 | **Stop bits** | **2** |
 | **Baud rate** |  **115200** baud |
@@ -131,7 +130,6 @@ Simulation settings:
 
 | Setting | Set to |
 |---|---|
-| **Address flag** | **0** |
 | **Parity** | **0** |
 | **Stop bits** | **1** |
 | **Baud rate** | **9600** baud |
