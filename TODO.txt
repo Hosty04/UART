@@ -1,2 +1,0 @@
-- v README pridat odkazy na srcs, simulace novych komponent a popsat funkci settings vice do podrobna
-
