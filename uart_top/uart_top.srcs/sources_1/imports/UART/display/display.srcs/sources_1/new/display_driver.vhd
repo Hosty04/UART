@@ -1,4 +1,3 @@
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -96,7 +95,7 @@ begin
             when "0" =>
                 anode <= "10";  -- Right digit active
             when "1" =>
-                anode <= "01";  -- Right digit active
+                anode <= "01";  -- Left digit active
             when others =>
                 anode <= "11";  -- All off
         end case;

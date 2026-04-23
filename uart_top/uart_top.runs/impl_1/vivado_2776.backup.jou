@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Apr 23 08:23:32 2026
+# Process ID         : 2776
+# Current directory  : C:/Users/270798/Documents/UART/uart_top/uart_top.runs/impl_1
+# Command line       : vivado.exe -log uart_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source uart_top.tcl -notrace
+# Log file           : C:/Users/270798/Documents/UART/uart_top/uart_top.runs/impl_1/uart_top.vdi
+# Journal file       : C:/Users/270798/Documents/UART/uart_top/uart_top.runs/impl_1\vivado.jou
+# Running On         : PC-630
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i3-9100 CPU @ 3.60GHz
+# CPU Frequency      : 3600 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 4
+# Host memory        : 8423 MB
+# Swap memory        : 2952 MB
+# Total Virtual      : 11376 MB
+# Available Virtual  : 3933 MB
+#-----------------------------------------------------------
+source uart_top.tcl -notrace

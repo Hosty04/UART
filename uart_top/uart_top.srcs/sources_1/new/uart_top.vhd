@@ -94,7 +94,7 @@ architecture Behavioral of uart_top is
     signal sig_rx_pop            : std_logic;
 
     signal sig_data_disp         : std_logic_vector(7 downto 0);
-    signal sig_data_disp_latched : std_logic_vector(7 downto 0);
+    signal sig_data_disp_latched : std_logic_vector(7 downto 0) := "00000000";
 
     signal timer                 : integer range 0 to 199999999 := 0;
 
