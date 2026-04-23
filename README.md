@@ -92,7 +92,7 @@ The settings area controls the serial link behavior and determines how data is f
 | Setting | Description |
 |---|---|
 | **Address flag** | Marks whether the transmitted byte is treated as an address or as regular data. 
-Switch is in the up position|
+Switch is in the up position| 
 Switch is in the down position|
 |||
 | **Parity** | Enables **even parity** for basic error checking. 
