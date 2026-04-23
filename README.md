@@ -59,17 +59,27 @@ In both communication directions, transmitted and received data are stored in FI
 ### Debounce
 Eliminates unwanted signal glitches caused by mechanical button presses and releases.
 
+[Debounce - Source file](https://github.com/Hosty04/UART/tree/d0c816b90145e416d75e810c0764adc2ca21525a/debounce/debounce.srcs)
+
 ### TX
 Accepts communication parameters and data from the FIFO buffer and FPGA inputs. It transmits serialized data to the PC, synchronized with the system clock (`CLK`). 
+
+[TX - Source file](https://github.com/Hosty04/UART/tree/d0c816b90145e416d75e810c0764adc2ca21525a/tx/tx.srcs)
 
 ### FIFO
 Implements a circular buffer to compensate for speed differences between data producers and consumers. It temporarily stores incoming or outgoing characters until they can be processed.
 
+[FIFO - Source file](https://github.com/Hosty04/UART/tree/d0c816b90145e416d75e810c0764adc2ca21525a/fifo/fifo.srcs)
+
 ### RX
 Receives serial data from the PC and, synchronized with the system clock (`CLK`), stores the incoming data into a FIFO buffer.
 
+[RX - Source file](https://github.com/Hosty04/UART/tree/d0c816b90145e416d75e810c0764adc2ca21525a/rx/rx.srcs)
+
 ### Display Driver
 Handles conversion from binary values to seven-segment display encoding (`bin_to_seg`). It enables control of multiple displays and allows simultaneous visualization of different characters.
+
+[Display Driver - Source file](https://github.com/Hosty04/UART/tree/d0c816b90145e416d75e810c0764adc2ca21525a/display/display.srcs)
 
 ---
 ## Settings
