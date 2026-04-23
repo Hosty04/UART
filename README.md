@@ -107,11 +107,11 @@ Simulation settings:
 
 | Setting | Set to |
 |---|---|
-| **Address flag** |  |
-| **Parity** |  |
-| **Stop bits** | **1** or **2**. |
-| **Baud rate** | **9600** or **115200** baud. |
-| **Info bits** | **5-9**. |
+| **Address flag** | **3** |
+| **Parity** | **1** |
+| **Stop bits** | **2** |
+| **Baud rate** |  **115200** baud |
+| **Info bits** | **9** |
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/tx_max.png)
 
@@ -121,11 +121,11 @@ Simulation settings:
 
 | Setting | Set to |
 |---|---|
-| **Address flag** |  |
-| **Parity** |  |
-| **Stop bits** | **1** or **2**. |
-| **Baud rate** | **9600** or **115200** baud. |
-| **Info bits** | **5-9**. |
+| **Address flag** | **3** |
+| **Parity** | **0** |
+| **Stop bits** | **1** |
+| **Baud rate** | **9600** baud |
+| **Info bits** | **5** |
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/tx_min.png)
 
