@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a50ticsg324-1L" LaunchTime="1776930325">
+<GenRun Id="impl_1" LaunchPart="xc7a50ticsg324-1L" LaunchTime="1776931075">
   <File Type="PA-TCL" Name="uart_top.tcl"/>
   <File Type="REPORTS-TCL" Name="uart_top_reports.tcl"/>
   <File Type="INIT-TIMING" Name="uart_top_timing_summary_init.rpt"/>

@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Thu Apr 23 09:46:32 2026
-# Process ID         : 1640
+# Start of session at: Thu Apr 23 09:59:02 2026
+# Process ID         : 13124
 # Current directory  : C:/Users/270798/Documents/UART/uart_top/uart_top.runs/impl_1
 # Command line       : vivado.exe -log uart_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source uart_top.tcl -notrace
 # Log file           : C:/Users/270798/Documents/UART/uart_top/uart_top.runs/impl_1/uart_top.vdi
@@ -19,6 +19,6 @@
 # Host memory        : 8423 MB
 # Swap memory        : 2952 MB
 # Total Virtual      : 11376 MB
-# Available Virtual  : 2726 MB
+# Available Virtual  : 2664 MB
 #-----------------------------------------------------------
 source uart_top.tcl -notrace
