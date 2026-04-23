@@ -98,8 +98,11 @@ The settings area controls the serial link behavior and determines how data is f
 
 
 **Parity:** Parity is a simple error detection mechanism. When enabled, an additional bit is appended to each transmitted frame to ensure that the total number of logic '1's is either even or odd (depending on implementation). The receiver checks this bit to detect possible transmission errors.
+
 **Stop bit:** Stop bits indicate the end of a data frame. After transmitting the data (and optional parity bit), the line is held in a logical high state for 1 or 2 bit periods. More stop bits increase reliability but reduce effective data throughput.
+
 **Baud rate:** The baud rate defines the speed of data transmission in bits per second (bps). Both transmitter and receiver must be configured to the same baud rate (e.g., 9600 or 115200) to ensure correct communication.
+
 **Info bits:** Info bits (data bits) represent the actual payload of the transmitted frame. Common configurations range from 5 to 9 bits. Increasing the number of data bits allows transmission of a wider range of values per frame.
 
 ---
