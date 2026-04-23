@@ -103,12 +103,20 @@ The settings area controls the serial link behavior and determines how data is f
 
 ### TX_max
 
+![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/tx_max.png)
+
 ### TX_min
+
+![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/tx_min.png)
 
 ### RX
 
+![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/rx.png)
+
 ### FIFO_wr
+
+![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/fifo_wr.png)
 
 ### FIFO_rd
 
-
+![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/fifo_rd.png)
