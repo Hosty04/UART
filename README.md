@@ -143,18 +143,18 @@ Simulation settings:
 
 ### RX
 
-The simulation shows data being input into the RX component, which acknowledges receipt of the data and sends it in an 8-bit structure to the FIFO component.
+The simulation shows data being input into the RX component, which acknowledges receipt of the data and sends it in an 8-bit structure to the **FIFO** component.
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/rx.png)
 
 ### FIFO_wr
 
-The simulation demonstrates the reception of 8-bit data from the component RX and stores the data until the memory is full; 
+The simulation demonstrates the reception of 8-bit data from the component **RX** and stores the data until the memory is full.
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/fifo_wr.png)
 
 ### FIFO_rd
 
-The simulation shows how the FIFO sends signals indicating when it is full or empty and sequentially transmits data to the Display Driver component.
+The simulation shows how the **FIFO** sends signals indicating when it is full or empty and sequentially transmits data to the **Display Driver** component.
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/fifo_rd.png)
