@@ -111,7 +111,7 @@ The settings area controls the serial link behavior and determines how data is f
 
 ### TX_max
 
-Simulation settings: 
+- Simulation settings: 
 
 | Setting | Set to |
 |---|---|
@@ -124,7 +124,7 @@ Simulation settings:
 
 ### TX_min
 
-Simulation settings: 
+- Simulation settings: 
 
 | Setting | Set to |
 |---|---|
