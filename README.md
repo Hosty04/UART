@@ -107,7 +107,7 @@ Simulation settings:
 |---|---|
 | **Parity** | **1** |
 | **Stop bits** | **2** |
-| **Baud rate** |  **115200** baud |
+| **Baud rate** |  **115200** |
 | **Info bits** | **9** |
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/tx_max.png)
@@ -120,7 +120,7 @@ Simulation settings:
 |---|---|
 | **Parity** | **0** |
 | **Stop bits** | **1** |
-| **Baud rate** | **9600** baud |
+| **Baud rate** | **9600** |
 | **Info bits** | **5** |
 
 ![image alt](https://github.com/Hosty04/UART/blob/c1735c9b8225c509bf77552a050ddf6beb17206b/simulations/tx_min.png)
