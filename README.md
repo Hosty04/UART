@@ -82,6 +82,7 @@ Handles conversion from binary values to seven-segment display encoding (`bin_to
 [Display Driver - Source file](https://github.com/Hosty04/UART/tree/d0c816b90145e416d75e810c0764adc2ca21525a/display/display.srcs)
 
 ---
+
 ## Settings
 
 Communication parameters are selected using the dedicated configuration switches on the FPGA board.
@@ -96,4 +97,18 @@ The settings area controls the serial link behavior and determines how data is f
 | **Baud rate** | Selects the communication speed: **9600** or **115200** baud. |
 | **Info bits** | Selects the number od info bits you want to send: **5-9**. |
 
-These parameters must match the settings of the connected PC terminal to ensure successful communication. A mismatch in baud rate, parity, or stop bits may result in corrupted data or no visible transmission at all.
+---
+
+## Simulations 
+
+### TX_max
+
+### TX_min
+
+### RX
+
+### FIFO_wr
+
+### FIFO_rd
+
+
