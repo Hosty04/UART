@@ -91,10 +91,10 @@ The settings area controls the serial link behavior and determines how data is f
 
 | Setting     | Switch up        | Switch down     |
 |-------------|-----------------|-----------------|
-| Parity      | Enabled         | Disabled        |
-| Stop bits   | 2               | 1               |
-| Baud rate   | 115200          | 9600            |
-| Info bits   | 9               | 5               |
+| **Parity **     | Enabled         | Disabled        |
+| **Stop bits**   | 2               | 1               |
+| **Baud rate**   | 115200          | 9600            |
+| **Info bits**   | 9               | 5               |
 ---
 
 ## Simulations 
