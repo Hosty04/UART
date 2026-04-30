@@ -1,0 +1,13 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/debounce/debounce.srcs/sources_1/new/debounce.vhd,1777532731,vhdl,,,,debounce,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/bin2seg.vhd,1777532731,vhdl,,,,bin2seg,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/clk_en.vhd,1777532731,vhdl,,,,clk_en,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/counter.vhd,1777532731,vhdl,,,,counter,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/new/display_driver.vhd,1777532731,vhdl,,,,display_driver,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/fifo/fifo.srcs/sources_1/imports/new/fifo.vhd,1777532731,vhdl,,,,fifo,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/rx/rx.srcs/sources_1/imports/new/rx.vhd,1777532731,vhdl,,,,uart_rx,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/tx/tx.srcs/sources_1/imports/new/tx.vhd,1777532731,vhdl,,,,uart_tx,,,,,,,,
+C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/new/uart_top.vhd,1777532731,vhdl,,,,uart_top,,,,,,,,

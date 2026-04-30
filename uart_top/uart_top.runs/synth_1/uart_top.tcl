@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/270798/Documents/UART/uart_top/uart_top.runs/synth_1/uart_top.tcl"
+  variable script "C:/Users/270798/Desktop/UART/uart_top/uart_top.runs/synth_1/uart_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -65,25 +65,25 @@ create_project -in_memory -part xc7a50ticsg324-1L
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/270798/Documents/UART/uart_top/uart_top.cache/wt [current_project]
-set_property parent.project_path C:/Users/270798/Documents/UART/uart_top/uart_top.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/270798/Desktop/UART/uart_top/uart_top.cache/wt [current_project]
+set_property parent.project_path C:/Users/270798/Desktop/UART/uart_top/uart_top.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part digilentinc.com:nexys-a7-50t:part0:1.3 [current_project]
-set_property ip_output_repo c:/Users/270798/Documents/UART/uart_top/uart_top.cache/ip [current_project]
+set_property ip_output_repo c:/Users/270798/Desktop/UART/uart_top/uart_top.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/bin2seg.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/clk_en.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/counter.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/debounce/debounce.srcs/sources_1/new/debounce.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/new/display_driver.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/fifo/fifo.srcs/sources_1/imports/new/fifo.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/rx/rx.srcs/sources_1/imports/new/rx.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/imports/UART/tx/tx.srcs/sources_1/imports/new/tx.vhd
-  C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/sources_1/new/uart_top.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/bin2seg.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/clk_en.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/imports/Desktop/counter.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/debounce/debounce.srcs/sources_1/new/debounce.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/display/display.srcs/sources_1/new/display_driver.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/fifo/fifo.srcs/sources_1/imports/new/fifo.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/rx/rx.srcs/sources_1/imports/new/rx.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/imports/UART/tx/tx.srcs/sources_1/imports/new/tx.vhd
+  C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/sources_1/new/uart_top.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -94,12 +94,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/constrs_1/imports/UART/nexys.xdc
-set_property used_in_implementation false [get_files C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/constrs_1/imports/UART/nexys.xdc]
+read_xdc C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/constrs_1/imports/UART/nexys.xdc
+set_property used_in_implementation false [get_files C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/constrs_1/imports/UART/nexys.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/utils_1/imports/synth_1/uart_top.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/utils_1/imports/synth_1/uart_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

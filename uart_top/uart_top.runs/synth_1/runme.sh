@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/270798/Documents/UART/uart_top/uart_top.runs/synth_1'
+HD_PWD='C:/Users/270798/Desktop/UART/uart_top/uart_top.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

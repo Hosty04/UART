@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "C:/Users/270798/Documents/UART/uart_top/uart_top.runs/impl_1/uart_top.tcl"
+  variable script "C:/Users/270798/Desktop/UART/uart_top/uart_top.runs/impl_1/uart_top.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,15 +115,15 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Users/270798/Documents/UART/uart_top/uart_top.cache/wt [current_project]
-  set_property parent.project_path C:/Users/270798/Documents/UART/uart_top/uart_top.xpr [current_project]
-  set_property ip_output_repo C:/Users/270798/Documents/UART/uart_top/uart_top.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/270798/Desktop/UART/uart_top/uart_top.cache/wt [current_project]
+  set_property parent.project_path C:/Users/270798/Desktop/UART/uart_top/uart_top.xpr [current_project]
+  set_property ip_output_repo C:/Users/270798/Desktop/UART/uart_top/uart_top.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/270798/Documents/UART/uart_top/uart_top.runs/synth_1/uart_top.dcp
+  add_files -quiet C:/Users/270798/Desktop/UART/uart_top/uart_top.runs/synth_1/uart_top.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/270798/Documents/UART/uart_top/uart_top.srcs/constrs_1/imports/UART/nexys.xdc
+  read_xdc C:/Users/270798/Desktop/UART/uart_top/uart_top.srcs/constrs_1/imports/UART/nexys.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

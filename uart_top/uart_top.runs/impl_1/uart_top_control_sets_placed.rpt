@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Thu Apr 23 09:59:39 2026
+| Date         : Thu Apr 30 09:37:16 2026
 | Host         : PC-630 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file uart_top_control_sets_placed.rpt
 | Design       : uart_top
@@ -78,13 +78,13 @@ Table of Contents
 |  clk_IBUF_BUFG | debounce_0/clock_0/E[0]           | btnd_IBUF                                    |                2 |              4 |         2.00 |
 |  clk_IBUF_BUFG | debounce_1/clock_0/E[0]           | btnd_IBUF                                    |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | uart_tx_0/rd_ptr0                 | btnd_IBUF                                    |                2 |              5 |         2.50 |
-|  clk_IBUF_BUFG | fifo_0/wr_ptr0                    | btnd_IBUF                                    |                2 |              5 |         2.50 |
 |  clk_IBUF_BUFG | fifo_1/rd_ptr0                    | btnd_IBUF                                    |                1 |              5 |         5.00 |
 |  clk_IBUF_BUFG | fifo_1/wr_ptr0                    | btnd_IBUF                                    |                1 |              5 |         5.00 |
-|  clk_IBUF_BUFG | uart_tx_0/shift_reg[7]_i_1__0_n_0 |                                              |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | fifo_0/wr_ptr0                    | btnd_IBUF                                    |                2 |              5 |         2.50 |
 |  clk_IBUF_BUFG | sig_rx_pop_reg_n_0                | btnd_IBUF                                    |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG | uart_rx_0/shift_reg[0]            | btnd_IBUF                                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | uart_tx_0/shift_reg[7]_i_1__0_n_0 |                                              |                3 |              8 |         2.67 |
 |  clk_IBUF_BUFG | uart_rx_0/data[7]_i_1_n_0         | btnd_IBUF                                    |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | uart_rx_0/shift_reg[0]            | btnd_IBUF                                    |                2 |              8 |         4.00 |
 |  clk_IBUF_BUFG | fifo_1/p_0_in__1                  |                                              |                2 |             12 |         6.00 |
 |  clk_IBUF_BUFG | fifo_0/p_0_in__0                  |                                              |                2 |             16 |         8.00 |
 |  clk_IBUF_BUFG |                                   | debounce_0/clock_0/s_cnt[0]_i_1_n_0          |                5 |             18 |         3.60 |
