@@ -86,7 +86,7 @@ architecture Behavioral of uart_top is
     signal sig_tx_fifo_empty     : std_logic;
     signal sig_tx_data           : std_logic_vector(8 downto 0);
     signal sig_tx_done           : std_logic;
-    signal sig_tx_start          : std_logic := sig_tx_flush_hold and not sig_tx_fifo_empty;
+    signal sig_tx_start          : std_logic := (sig_tx_flush or sig_tx_done) and not sig_tx_fifo_empty;
 
     signal sig_rx_data           : std_logic_vector(7 downto 0);
     signal sig_rx_valid          : std_logic;
